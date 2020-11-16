@@ -6,6 +6,10 @@ def f1(x):
 def derivation(x, f):
     eps = 0.00000001
     return round(((f(x+eps)- f(x))/eps), 2)
+
+def derivation2(x, f):
+    eps = 0.0000001
+    return ((f(x+eps)- f(x))/eps)
   
 def f2(xar):
     return ((xar[0]**2)*np.cos(xar[1]) + 0.05 * xar[1]**3 + 3 * xar[0]**3 * np.log2(xar[1]**2))
@@ -25,11 +29,11 @@ def gradient(xar, f):
 def gradient_optimization_one_dim(f):
     eps = 0.001
     x = 10
-    der = derivation(x, f)
+    der = derivation2(x, f)
     step = 0
-    while (der >= eps and step < 50):
+    while (abs(der) >= eps and step < 50):
         x = x - eps * der
-        der = derivation(x, f)
+        der = derivation2(x, f)
         step += 1
     return round(x, 2)
 
