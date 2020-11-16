@@ -1,6 +1,4 @@
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 
 def func_1(x):
     return (np.cos(x) + 0.05 * x**3 + np.log(2 * x**2))
