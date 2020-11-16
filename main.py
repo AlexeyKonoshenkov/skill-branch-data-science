@@ -31,8 +31,7 @@ def gradient_optimization_one_dim(f):
         x = x - eps * der
         der = derivation(x, f)
         step += 1
-    print('Точка минимума х = ', x, ' Значение функции = ', f1(x), ' Количество шагов = ', step)
-    return round(f1(x), 2)
+    return round(x, 2)
 
 def gradient_optimization_multi_dim(f):
     eps = 0.01 
@@ -44,5 +43,4 @@ def gradient_optimization_multi_dim(f):
             xar[i] = xar[i] - eps * derar[i]
         derar = grad_func_2(xar, f2)
         step += 1
-    print('Точка минимума х = ', xar, ' Значение функции = ', f2(xar), ' Количество шагов = ', step)
-    return round(f2(xar), 2)
+    return [round(xar[0], 2), round(xar[1], 2)]
