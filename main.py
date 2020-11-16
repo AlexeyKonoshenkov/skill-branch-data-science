@@ -34,7 +34,7 @@ def gradient_optimization_one_dim(f):
     return round(x, 2)
 
 def gradient_optimization_multi_dim(f):
-    eps = 0.01 
+    eps = 0.001 
     xar = [4 , 10]
     derar = grad_func_2(xar, f2)
     step = 0
