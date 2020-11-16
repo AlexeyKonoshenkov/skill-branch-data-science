@@ -5,14 +5,14 @@ def f1(x):
   
 def derivation(x, f):
     eps = 0.0000001
-    return((f(x+eps) - f(x))/eps)
+    return(round((f(x+eps) - f(x))/eps), 2)
   
-def f2(x1, x2):
-    return (x1**2/np.cos(x2) + 0.05 * x2**3 + 3 * x1**3 / np.log(2 * x2**2))
+def f2(xar):
+    return (xar[0]**2/np.cos(xar[1]) + 0.05 * xar[1]**3 + 3 * xar[0]**3 / np.log(2 * xar[1]**2))
   
 def grad_func_2(x1, x2):
     dx1 = 2 * x1/np.cos(x2) + 9 * x1**2/np.log(2 * x2**2)
-    dx2 = (np.sin(x2) * x1**2)/((np.cos(x2))**2) + 0.15 * x2**2 - 6 * x1**3/(x2 * (np.log(2 * x2**2))**2)
+    dx2 = np.sin(x2) * x1**2 /((np.cos(x2))**2) + 0.15 * x2**2 - 6 * x1**3/x2 * (np.log(2 * x2**2))**2
     return [dx1, dx2]
   
 def gradient(xar, f):
@@ -21,7 +21,7 @@ def gradient(xar, f):
     dx2 = (f(xar[0], xar[1] + eps) - f(xar[0],xar[1]))/eps
     return round(np.sqrt(dx1**2 + dx2**2), 2)
   
-def gradient_optimisation_one_dim(f):
+def gradient_optimization_one_dim(f):
     eps = 0.001
     x = 10
     der = derivation(x, f)
@@ -33,7 +33,7 @@ def gradient_optimisation_one_dim(f):
     print('Точка минимума х = ', x, ' Значение функции = ', f1(x), ' Количество шагов = ', step)
     return round(f1(x), 2)
 
-def gradient_optimisation_two_dim(f):
+def gradient_optimization_two_dim(f):
     eps = 0.01 
     xar = [4 , 10]
     derar = grad_func_2(xar[0], xar[1])
@@ -43,5 +43,5 @@ def gradient_optimisation_two_dim(f):
             xar[i] = xar[i] - eps * derar[i]
         derar = grad_func_2(xar[0], xar[1])
         step += 1
-    print('Точка минимума х = ', xar, ' Значение функции = ', f2(xar[0], xar[1]), ' Количество шагов = ', step)
-    return round(f2(xar[0], xar[1]), 2)
+    print('Точка минимума х = ', xar, ' Значение функции = ', f2(xar), ' Количество шагов = ', step)
+    return round(f2(xar), 2)
