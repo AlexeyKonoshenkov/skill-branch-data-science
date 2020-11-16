@@ -30,9 +30,9 @@ def graddes_f1(x , eps):
       der = deriv_func_1(x)
       step += 1
   print('Точка минимума х = ', x, ' Значение функции = ', func_1(x), ' Количество шагов = ', step)
-  pass
+  return(x)
 
-def graddes_f2(xar, eps)
+def graddes_f2(xar, eps):
   derar = grad2_func_2(xar[0], xar[1])
   step = 0
   while((derar[0] >= eps or derar[1] >= eps) and step <= 10000):
@@ -41,7 +41,7 @@ def graddes_f2(xar, eps)
       derar = grad2_func_2(xar[0], xar[1])
       step += 1
   print('Точка минимума х = ', xar, ' Значение функции = ', func_2(xar[0], xar[1]), ' Количество шагов = ', step)
-  pass
+  return(xar)
 
 print('Производная первой функции равна = ', deriv_func_1(10))
 print('Значение вектора градиента функции = ', grad_func_2(10,1), '-------', grad2_func_2(10,1))
