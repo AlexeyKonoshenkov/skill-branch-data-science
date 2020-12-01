@@ -37,8 +37,9 @@ def gradient_optimization_one_dim(f):
         step += 1
     return round(x, 2)
 
-def gradient_optimization_multi_dim(xar, f):
+def gradient_optimization_multi_dim(f):
     eps = 0.001 
+    xar = [4, 10]
     derar = grad_func_2(xar, f2)
     step = 0
     while((derar[0] >= eps or derar[1] >= eps) and step < 50):
