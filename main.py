@@ -24,7 +24,8 @@ def gradient(xar, f):
     eps = 0.00000001
     dx1 = round((f([xar[0] + eps, xar[1]]) - f(xar))/eps, 2)
     dx2 = round((f([xar[0], xar[1] + eps]) - f(xar))/eps, 2)
-    return round(np.sqrt(dx1**2 + dx2**2), 2)
+    #return round(np.sqrt(dx1**2 + dx2**2), 2)
+    return [round(dx1, 2), round(dx2, 2)]
   
 def gradient_optimization_one_dim(f):
     eps = 0.001
@@ -44,7 +45,7 @@ def gradient_optimization_multi_dim(f):
     step = 0
     while((derar[0] >= eps or derar[1] >= eps) and step < 50):
         for i in range(len(xar)):
-            xar[i] = xar[i] - eps * derar[i]
+            xar[i] = round(xar[i] - eps * derar[i], 2)
         derar = grad_func_2(xar, f2)
         step += 1
     return [round(xar[0], 2), round(xar[1], 2)]
