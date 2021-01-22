@@ -25,7 +25,7 @@ def calculate_mean_price_in_new_housing(x):
 def calculate_mean_squared_by_num_rooms(x):
     return np.around(x.groupby(['num_room'])['full_sq'].mean(), decimals = 2)
    
-def calculate_squared_stats_by_materials(x):
+def calculate_squared_stats_by_material(x):
     data1 = np.around(x.groupby(['material'])['full_sq'].max(), decimals = 2)
     data2 = np.around(x.groupby(['material'])['full_sq'].min(), decimals = 2)
     return pd.concat([data1, data2], axis = 1)
