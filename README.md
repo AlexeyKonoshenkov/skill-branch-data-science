@@ -1,2 +1,0 @@
-# SkillBranch
-The repository
