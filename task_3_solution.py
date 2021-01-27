@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from copy import deepcopy
-from tqdm import tqdm
 
 from sklearn.datasets import make_regression
 from sklearn.linear_model import SGDClassifier
@@ -14,7 +13,6 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-%matplotlib inline
 
 def split_data_into_two_samples(df):
     return train_test_split(df,test_size = 0.3, train_size = 0.7, random_state = 42)
